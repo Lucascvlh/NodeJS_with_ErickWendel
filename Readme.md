@@ -1,5 +1,5 @@
 # Course of Erick Wendel about iniciation in NodeJS
 
-Iniciation for create project with nodeJS
+Iniciation for create project with nodeJS of **Erick Wendel**
 
-- _NPM INIT_ or _NPM INIT_ -Y for say yes for all at configuration.
+- `npm init` or `npm init -y` for say yes for all at configuration.
