@@ -4,12 +4,17 @@
 2 Obter o endereço de usuário pelo ID
 */
 
-function obterUsuario(callback) {
-  setTimeout(() => callback(null, {
-    id: 1,
-    nome: 'Lucas',
-    dataNascimento: new Date(),
-  }), 1000);
+function obterUsuario() {
+  // quando der algum problema -> reject(Erro)
+  // quando sucess -> Resolve
+  return new Promise((resolve, reject) => {
+    setTimeout(() =>
+    resolve({
+      id: 1,
+      nome: 'Lucas',
+      dataNascimento: new Date(),
+    }), 1000);
+  });
 }
 
 function obterTelefone(idUsuario, callback) {
@@ -26,7 +31,17 @@ function obterEndereco(idUsuario, callback) {
   }), 2000);
 }
 
-function resolverUsuario(erro, usuario) {
+const usuarioPromise = obterUsuario();
+// para manipular o sucesso usamos a função .then
+// para manipular o erro, usamos o .catch
+
+usuarioPromise.then((resultado) => {
+  console.log('resultado', resultado);
+}).catch((error) => {
+  console.error('Deu ruim', error;
+});
+
+/* function resolverUsuario(erro, usuario) {
   // null || "" || 0 === false
   if (erro) {
     console.error('Deu ruim em usuário', Error);
@@ -52,4 +67,4 @@ function resolverUsuario(erro, usuario) {
 obterUsuario(resolverUsuario);
 
 // const usuario = obterUsuario();
-// const telefone = obterTelefone(usuario.id);
+// const telefone = obterTelefone(usuario.id); */
